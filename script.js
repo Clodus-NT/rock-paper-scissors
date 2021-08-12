@@ -20,27 +20,36 @@ function round(userChoice, compChoice) {
             return 'It\'s a tie!';
     } else if (userChoice==='rock' && compChoice==='scissors') {
         userScore++;
-        return "You Win! Rock beats scissors.";
+        return 'Round Won! Rock beats scissors.';
     } else if (userChoice==='rock' && compChoice==='paper') {
         compScore++;
-        return "You lose... Paper beats rock.";
+        return 'Round Lost... Paper beats rock.';
     } else if (userChoice==='paper' && compChoice==='rock') {
         userScore++;
-        return "You Win! Paper beats rock.";
+        return 'Round Won! Paper beats rock.';
     } else if (userChoice==='paper' && compChoice==='scissors') {
         compScore++;
-        return 'You lose... Scissors beat paper.';
+        return 'Round Lost... Scissors beat paper.';
     } else if (userChoice==='scissors' && compChoice==='paper') {
         userScore++;
-        return "You Win! Scissors beat paper.";
+        return 'Round Won! Scissors beat paper.';
     } else if (userChoice==='scissors' && compChoice==='rock') {
         compScore++;
-        return "You lose... Rock beats scissors.";
+        return 'Round Lost... Rock beats scissors.';
     }
 }
 
+/*This calls round() 5x using a for loop. It then tallies the score and logs the results to the console.*/
 function game() {
     for(let run = 0; run < 5; run++) {
         console.log(round());
+    }
+
+    if (userScore < compScore) {
+        console.log('You lost the game.');
+    } else if (userScore > compScore) {
+        console.log('YOU WON!!!');
+    } else {
+        console.log('Tie-Game.')
     }
 }

@@ -19,16 +19,28 @@ function round(userChoice, compChoice) {
         (userChoice==='scissors' && compChoice==='scissors')) {
             return 'It\'s a tie!';
     } else if (userChoice==='rock' && compChoice==='scissors') {
+        userScore++;
         return "You Win! Rock beats scissors.";
     } else if (userChoice==='rock' && compChoice==='paper') {
+        compScore++;
         return "You lose... Paper beats rock.";
     } else if (userChoice==='paper' && compChoice==='rock') {
+        userScore++;
         return "You Win! Paper beats rock.";
     } else if (userChoice==='paper' && compChoice==='scissors') {
-        return "You lose... Scissors beat paper.';"
+        compScore++;
+        return 'You lose... Scissors beat paper.';
     } else if (userChoice==='scissors' && compChoice==='paper') {
+        userScore++;
         return "You Win! Scissors beat paper.";
     } else if (userChoice==='scissors' && compChoice==='rock') {
+        compScore++;
         return "You lose... Rock beats scissors.";
+    }
+}
+
+function game() {
+    for(let run = 0; run < 5; run++) {
+        console.log(round());
     }
 }

@@ -9,18 +9,26 @@ function computerPlayer() {
     return choicesArray[ Math.floor(Math.random() * choicesArray.length) ];
 }
 
-/* This runs 1 round of the game, returns the result, and logs the result to the console. It converts userChoice to lower case so to remove case sensitivity. */
+/* This runs 1 round of the game, returns the result, and logs the result to the console. It will cause userChoice to be lower case to remove case sensitivity. */
 function round(userChoice, compChoice) {
-    let beginRound = prompt('Best out of five rounds. What\'ll it be?');
-    userChoice = beginRound.toLowerCase();
-
+    userChoice = prompt('Best out of five rounds. What\'ll it be?');
     compChoice = computerPlayer();
 
     if ((userChoice==='rock' && compChoice==='rock') ||
         (userChoice==='paper' && compChoice==='paper') ||
         (userChoice==='scissors' && compChoice==='scissors')) {
             return 'It\'s a tie!';
-    } else {
-        return 'It sort of works';
+    } else if (userChoice==='rock' && compChoice==='scissors') {
+        return "You Win! Rock beats scissors.";
+    } else if (userChoice==='rock' && compChoice==='paper') {
+        return "You lose... Paper beats rock.";
+    } else if (userChoice==='paper' && compChoice==='rock') {
+        return "You Win! Paper beats rock.";
+    } else if (userChoice==='paper' && compChoice==='scissors') {
+        return "You lose... Scissors beat paper.';"
+    } else if (userChoice==='scissors' && compChoice==='paper') {
+        return "You Win! Scissors beat paper.";
+    } else if (userChoice==='scissors' && compChoice==='rock') {
+        return "You lose... Rock beats scissors.";
     }
 }

@@ -13,7 +13,7 @@ function computerPlayer() {
 
 /* This runs 1 round of the game, returns the result, and logs the result to the console. It causes userChoice to be lower case to remove case sensitivity. It also adds a point to the winner and stores the result.*/
 function round(userChoice, compChoice) {
-    userChoice = prompt('Best out of five rounds. What\'ll it be?').toLowerCase();
+    userChoice = prompt('What\'ll it be? Choose: rock, paper, or scissors').toLowerCase();
     
     compChoice = computerPlayer();
 

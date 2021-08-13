@@ -1,17 +1,20 @@
+
+//These need to be declared globally so that we can access them later. 
 let userScore = 0;
 let compScore = 0;
 
-/* This randomly choose a string from an array and
-returns the result. It will be called in the 'round' function. */
+/* This function randomly chooses a string from an array and
+returns the result. It will be called in the round() function. */
 function computerPlayer() {
     let choicesArray = ['rock', 'paper', 'scissors'];
 
     return choicesArray[ Math.floor(Math.random() * choicesArray.length) ];
 }
 
-/* This runs 1 round of the game, returns the result, and logs the result to the console. It will cause userChoice to be lower case to remove case sensitivity. */
+/* This runs 1 round of the game, returns the result, and logs the result to the console. It causes userChoice to be lower case to remove case sensitivity. It also adds a point to the winner and stores the result.*/
 function round(userChoice, compChoice) {
-    userChoice = prompt('Best out of five rounds. What\'ll it be?');
+    userChoice = prompt('Best out of five rounds. What\'ll it be?').toLowerCase();
+    
     compChoice = computerPlayer();
 
     if ((userChoice==='rock' && compChoice==='rock') ||
@@ -36,6 +39,8 @@ function round(userChoice, compChoice) {
     } else if (userChoice==='scissors' && compChoice==='rock') {
         compScore++;
         return 'Round Lost... Rock beats scissors.';
+    } else {
+        return 'That\'s not an option, bucko.';
     }
 }
 
